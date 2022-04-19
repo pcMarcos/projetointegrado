@@ -1,12 +1,13 @@
 class ExpensesController < ApplicationController
   def new
     @expense = Expense.new
-    @expenses = Expense.all
   end
 
   def create
     @expense = Expense.new(expense_params)
-    redirect_to root_path, notice: 'Despesa criada com sucesso' if @expense.save
+    if @expense.save
+      redirect_to root_path, notice: 'Despesa criada com sucesso'
+    end
   end
 
   def show

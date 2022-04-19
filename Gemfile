@@ -32,6 +32,8 @@ gem 'devise'
 gem 'acts_as_paranoid'
 
 gem 'htmlbeautifier'
+gem 'pg'
+
 
 
 # Reduces boot times through caching; required in config/boot.rb

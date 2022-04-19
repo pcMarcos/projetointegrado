@@ -12,7 +12,7 @@
 class Expense < ApplicationRecord
   acts_as_paranoid
 
-  belongs_to :user
+  belongs_to :user, optional: true
   has_many :limits
   has_many :categories
 end
