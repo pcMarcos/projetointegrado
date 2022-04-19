@@ -1,0 +1,19 @@
+# == Schema Information
+#
+# Table name: expenses
+#
+#  id         :integer          not null, primary key
+#  name       :string
+#  value      :float
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  deleted_at :datetime
+#
+
+one:
+  name: MyString
+  value: 1.5
+
+two:
+  name: MyString
+  value: 1.5
