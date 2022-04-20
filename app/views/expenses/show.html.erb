@@ -1,9 +1,19 @@
 <div class="container">
-  <% @expenses.each do |post| %>
-    <div class="col-md-4">
-      <h1><%= post.name %></h1>
-      <p><%= post.value %></p>
-      <br>
+<h3> Relatório de despesas </h3>
+  <div class="card">
+    <div class="card-body">
+      <% @expenses.each do |expense| %>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <p> <%= show_svg('cash-coin.svg') %> Despesa <%= expense.id %></p>
+            <p><%= expense.name %></p>
+            <p><%= expense.value %></p>
+            <p><%= expense.description %></p>
+            <p><%= expense.created_at %></p>
+          </li>
+          <br>
+        </ul>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 </div>

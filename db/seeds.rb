@@ -9,4 +9,11 @@
 
 
 User.create(name: "Dom Bosco", email: "dombosco@mail.com", password: "acesso")
-User.create(name: "Marcos", email: "mp.doublebass@gmail.com", password: "acesso")
+
+user = User.find_by(email: "dombosco@mail.com")
+
+Category.create(name: "Geral", user: user)
+Category.create(name: "Moradia", user: user)
+Category.create(name: "Transporte", user: user)
+Category.create(name: "Alimentação", user: user)
+Category.create(name: "Lazer", user: user)

@@ -1,0 +1,12 @@
+<div class="col-4">
+  <h3> Categorias </h3>
+  <% @categories.each do |category| %>
+    <div class="card mt-3">
+      <div class="card-body">
+        <h5 class="card-title"><%= category.name %></h5>
+        <a href="../categories/<%= category.id %>/edit" class="btn btn-primary">Editar</a>
+        <%= link_to 'Deletar', category, :method => 'delete', class: 'btn btn-danger' %>
+      </div>
+    </div>
+    <% end %>
+</div>

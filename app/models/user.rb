@@ -26,12 +26,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :limits
   has_many :categories
   has_many :expenses
 
-
-  def user_id
-    self.id
-  end
+  validates :name, presence: true, uniqueness: { scope: :deleted_at, case_sensitive: false }
+  validates :email, presence: true, uniqueness: { scope: :deleted_at, case_sensitive: false }
 end

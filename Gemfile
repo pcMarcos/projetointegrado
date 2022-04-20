@@ -32,10 +32,6 @@ gem 'devise'
 gem 'acts_as_paranoid'
 
 gem 'htmlbeautifier'
-gem 'pg'
-
-
-
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
@@ -45,6 +41,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'pry', '~> 0.13.1'
   gem 'sqlite3', '~> 1.4'
   gem 'annotate'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.

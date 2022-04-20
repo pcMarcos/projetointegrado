@@ -1,25 +1,19 @@
 <div class="container">
-  <div class="card">
-    <div class="card-body">
-      <%= form_with(model: @expense, url: expenses_path) do |f| %>
-        <div class="card">
-          <div class="card-body">
-            <div class="mb-3">
-              <%= f.label :nome, { class: "form-label"} %>
-              <%= f.text_field :name, { class: "form-control", placeholder: "Nome da despesa" } %>
-            </div>
-            <div class="mb-3">
-              <%= f.label :valor, { class: "form-label"} %>
-              <%= f.text_field :code, { class: "form-control", placeholder: "Valor da despesa" } %>
-            </div>
-            <div class="mb-3">
-              <%= f.label :descrição, { class: "form-label"} %>
-              <%= f.text_field :description, { class: "form-control", placeholder: "Descrição" } %>
-            </div>
-            <%= f.submit "Criar despesa", class: "btn btn-primary" %>
+  <div class="row justify-content-around">
+  <div class="col-4">
+    <h3> Criar categoria </h3>
+    <%= form_with(model: @category, url: categories_path) do |f| %>
+      <div class="card">
+        <div class="card-body">
+          <div class="mb-3">
+            <%= f.label :nome, { class: "form-label"} %>
+            <%= f.text_field :name, { class: "form-control", placeholder: "Nome da categoria" } %>
           </div>
+          <%= f.submit "Criar categoria", class: "btn btn-primary" %>
         </div>
-      <% end %>
+      </div>
+    <% end %>
     </div>
+    <%= render "categories/show" %>
   </div>
 </div>

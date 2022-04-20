@@ -6,10 +6,18 @@
 #  name       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  user_id    :integer
+#
+# Indexes
+#
+#  index_categories_on_user_id  (user_id)
+#
+# Foreign Keys
+#
+#  user_id  (user_id => users.id)
 #
 class Category < ApplicationRecord
   belongs_to :user
-  belongs_to :expense
-  belongs_to :limit, optional: true
 
+  validates :name, presence: true, uniqueness: true
 end

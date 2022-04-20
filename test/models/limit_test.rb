@@ -4,9 +4,11 @@
 #
 #  id         :integer          not null, primary key
 #  deleted_at :datetime
+#  name       :string
 #  value      :float
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  type_id    :string
 #
 # Indexes
 #

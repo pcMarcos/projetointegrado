@@ -15,8 +15,7 @@
             </div>
             <div class="mb-3">
               <%= f.label :categoria, { class: "form-label"} %>
-              <% user_array = User.all.map { |user| [user.name, user.id] } %>
-              <%= f.select :category, [ "Categoria", user_array ], { class: "form-control" } %>
+              <%= f.select :category, options_from_collection_for_select(@categories, :id, :name), {}, { class: "form form-group form-control" } %>
             </div>
             <div class="mb-3">
               <%= f.label :descrição, { class: "form-label"} %>
@@ -34,9 +33,9 @@
     <div class="col">
       <div class="card" style="width: 28rem;  height: 13rem;">
         <div class="card-body d-flex flex-column">
-          <h5 class="card-title">Criar Categoria</h5>
-          <p class="card-text">Crie novas categorias de despesas de acordo com suas necessidades</p>
-          <a href="expenses/new" class="btn btn-primary mt-auto" >Criar Categoria</a>
+          <h5 class="card-title">Gerenciar Categorias</h5>
+          <p class="card-text">Liste e crie novas categorias de despesas de acordo com suas necessidades</p>
+          <a href="../categories/new" class="btn btn-primary mt-auto" >Criar Categoria</a>
         </div>
       </div>
     </div>

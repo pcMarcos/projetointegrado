@@ -1,5 +1,36 @@
-<div class="card">
-<div class="card-body">
-
-</div>
+<div class="container">
+  <div class="row">
+    <h3> Limites </h3>
+    <% @limits.each do |limit| %>
+      <div class="card">
+        <div class="card-body">
+          <h1 class="text-success"> <%= limit.value %> </h1>
+          <p> <%= limit.name %> </p>
+          <p> <%= limit.type_id %> </p>
+        </div>
+      </div>
+    <% end %>
+    <div class="container" style="margin-top: 70px">
+      <div class="row">
+        <div class="col">
+          <div class="card" style="width: 28rem;  height: 13rem;">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Criar limite por Categoria</h5>
+              <p class="card-text">Crie novas categorias de despesas de acordo com suas necessidades</p>
+              <a href="expenses/new" class="btn btn-primary mt-auto" >Criar Categoria</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card" style="width: 28rem;  height: 13rem;">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Criar Limite Geral</h5>
+              <p class="card-text">Crie limites personalizados e gerencie-os</p>
+              <a href="limits/show" class="btn btn-primary mt-auto">Criar limites</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
