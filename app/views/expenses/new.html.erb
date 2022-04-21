@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="row" style="width: 40rem;">
-    <div class="col">
+  <div class="row justify-content-around">
+    <div class="col-4">
       <h5> Criar despesa </h5>
       <%= form_with(model: @expense, url: expenses_path) do |f| %>
         <div class="card">
@@ -15,7 +15,7 @@
             </div>
             <div class="mb-3">
               <%= f.label :categoria, { class: "form-label"} %>
-              <%= f.select :category, options_from_collection_for_select(@categories, :id, :name), {}, { class: "form form-group form-control" } %>
+              <%= f.select :category_id, options_from_collection_for_select(@categories, :id, :name), {}, { class: "form form-group form-control" } %>
             </div>
             <div class="mb-3">
               <%= f.label :descrição, { class: "form-label"} %>
@@ -25,6 +25,9 @@
           </div>
         </div>
       <% end %>
+    </div>
+    <div class="col-8">
+      <img src= <%= image_path("dashboard.png") %> class="rounded mx-auto d-block" alt="Responsive image"  style="max-width: 60%;">
     </div>
   </div>
 </div>
@@ -44,7 +47,7 @@
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">Criar Limites</h5>
           <p class="card-text">Crie limites personalizados e gerencie-os</p>
-          <a href="limits/show" class="btn btn-primary mt-auto">Criar limites</a>
+          <a href="../limits/show" class="btn btn-primary mt-auto">Criar limites</a>
         </div>
       </div>
     </div>

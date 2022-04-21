@@ -1,0 +1,24 @@
+  <div class="row">
+    <div class="col-4">
+      <div class="card">
+        <div class="card-body">
+          <% @expenses.each do |expense| %>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <ul class="list-group">
+                  <li class="list-group-item list-group-item-dark"> <%= show_svg('cash-coin.svg') %> <%= expense.id %> - </strong> <%= expense.name %></li>
+                  <li class="list-group-item"> <strong> Nome da despesa: </strong> <%= expense.name %> </li>
+                  <li class="list-group-item"> <strong> Valor: </strong> <%= expense.value %> </li>
+                  <li class="list-group-item"> <strong> Descrição: </strong> <%= expense.description %> </li>
+                  <li class="list-group-item"> <strong> Data de criação: </strong> <%= expense.created_at %> </li>
+                  <li class="list-group-item"> <strong> Categoria: </strong> <%= expense&.category&.name %> </p>
+                  </li>
+                </ul>
+              </li>
+              <br>
+            </ul>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>

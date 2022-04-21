@@ -1,19 +1,31 @@
 <div class="container">
-<h3> Relatório de despesas </h3>
-  <div class="card">
-    <div class="card-body">
-      <% @expenses.each do |expense| %>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            <p> <%= show_svg('cash-coin.svg') %> Despesa <%= expense.id %></p>
-            <p><%= expense.name %></p>
-            <p><%= expense.value %></p>
-            <p><%= expense.description %></p>
-            <p><%= expense.created_at %></p>
-          </li>
-          <br>
-        </ul>
-      <% end %>
+<div class="row justify-content-around">
+  <div class="col justify-content-center">
+  <h3> Relatório de despesas </h3>
+    <img src= <%= image_path("dashboard.png") %> class="rounded mx-auto d-block" alt="Responsive image"  style="max-width: 40%;">
+  </div>
+</div>
+</div>
+
+<div class="container" style="margin-top: 70px">
+  <div class="row">
+    <div class="col">
+      <div class="card" style="width: 28rem;  height: 10rem;">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Geral</h5>
+          <p class="card-text"> Exiba o relatório dos seus gastos gerais </p>
+          <a href="../categories/new" class="btn btn-primary mt-auto" >Geral</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card" style="width: 28rem;  height: 10rem;">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Por Categorias</h5>
+          <p class="card-text"> Exiba o relatório dos seus gastos por categoria </p>
+          <a href="limits/show" class="btn btn-primary mt-auto"> Categorias </a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
