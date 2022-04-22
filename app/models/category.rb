@@ -18,6 +18,8 @@
 #
 class Category < ApplicationRecord
   belongs_to :user
+  has_many :expenses
+  has_one :limit
 
   validates :name, presence: true, uniqueness: true
 end

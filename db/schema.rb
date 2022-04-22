@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_20_151252) do
+ActiveRecord::Schema.define(version: 2022_04_22_012053) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -34,6 +34,17 @@ ActiveRecord::Schema.define(version: 2022_04_20_151252) do
     t.index ["user_id"], name: "index_expenses_on_user_id"
   end
 
+  create_table "limits", force: :cascade do |t|
+    t.float "value"
+    t.string "name"
+    t.integer "category_id"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_limits_on_category_id"
+    t.index ["user_id"], name: "index_limits_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -52,4 +63,6 @@ ActiveRecord::Schema.define(version: 2022_04_20_151252) do
   add_foreign_key "categories", "users"
   add_foreign_key "expenses", "categories"
   add_foreign_key "expenses", "users"
+  add_foreign_key "limits", "categories"
+  add_foreign_key "limits", "users"
 end

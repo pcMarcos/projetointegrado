@@ -4,8 +4,8 @@
     <div class="card mt-3">
       <div class="card-body">
         <h5 class="card-title"><%= category.name %></h5>
-        <a href="../categories/<%= category.id %>/edit" class="btn btn-primary">Editar</a>
-        <%= link_to 'Deletar', category, :method => 'delete', class: 'btn btn-danger' %>
+        <a href="../categories/<%= category.id %>/edit" class="btn btn-outline-dark">Editar</a>
+        <%= link_to 'Deletar', category, :method => 'delete', class: 'btn btn-outline-danger' %>
       </div>
     </div>
     <% end %>

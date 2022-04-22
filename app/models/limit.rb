@@ -20,10 +20,7 @@
 #  category_id  (category_id => categories.id)
 #  user_id      (user_id => users.id)
 #
-require "test_helper"
-
-class LimitTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+class Limit < ApplicationRecord
+  belongs_to :category
+  belongs_to :user
 end

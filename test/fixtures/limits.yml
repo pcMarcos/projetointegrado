@@ -2,21 +2,33 @@
 #
 # Table name: limits
 #
-#  id         :integer          not null, primary key
-#  deleted_at :datetime
-#  name       :string
-#  value      :float
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  type_id    :string
+#  id          :integer          not null, primary key
+#  name        :string
+#  value       :float
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  category_id :integer
+#  user_id     :integer
 #
 # Indexes
 #
-#  index_limits_on_deleted_at  (deleted_at)
+#  index_limits_on_category_id  (category_id)
+#  index_limits_on_user_id      (user_id)
+#
+# Foreign Keys
+#
+#  category_id  (category_id => categories.id)
+#  user_id      (user_id => users.id)
 #
 
 one:
   value: 1.5
+  name: MyString
+  category: one
+  user: one
 
 two:
   value: 1.5
+  name: MyString
+  category: two
+  user: two

@@ -1,36 +1,29 @@
-<div class="container">
-  <div class="row">
-    <h3> Limites </h3>
-    <% @limits.each do |limit| %>
-      <div class="card">
-        <div class="card-body">
-          <h1 class="text-success"> <%= limit.value %> </h1>
-          <p> <%= limit.name %> </p>
-          <p> <%= limit.type_id %> </p>
-        </div>
-      </div>
-    <% end %>
-    <div class="container" style="margin-top: 70px">
-      <div class="row">
-        <div class="col">
-          <div class="card" style="width: 28rem;  height: 13rem;">
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Criar limite por Categoria</h5>
-              <p class="card-text">Crie novas categorias de despesas de acordo com suas necessidades</p>
-              <a href="expenses/new" class="btn btn-primary mt-auto" >Criar Categoria</a>
-            </div>
+<div class="col-4 mb-3">
+  <%= link_to 'Criar limites', @limit, :method => 'new', class: 'btn btn-outline-dark' %>
+</div>
+<div class="col-4 my-3">
+  <h3> Limites </h3>
+  <% @limits.each do |limit| %>
+    <div class="card my-3">
+      <div class="card-body">
+        <h5 class="card-title"><%= limit.name %></h5>
+        <p> Categoria: <%= limit.category.name %> </p>
+        <div class="card my-3 bg-light">
+          <div class="card-body">
+            <% used = limit.category.expenses.pluck(:value).compact.sum.round %>
+            <% if used > limit.value.round %>
+              <h5 class='text-danger'> Limite excedido! </h5>
+              <h5 class='text-danger'> Valor total R$ <%= used %> </h5>
+              <h5 class="card-title"> Utilizado:  <span class="text-danger"> <%= used %> </span> </h5>
+            <% else %>
+              <h5 class="card-title"> Utilizado:  <span class="text-success"> <%= used %> </span> </h5>
+            <% end%>
+            <h5 class="card-title"> Limite total: <span class="text-success"> <%= limit.value.round %> </span> </h5>
           </div>
         </div>
-        <div class="col">
-          <div class="card" style="width: 28rem;  height: 13rem;">
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Criar Limite Geral</h5>
-              <p class="card-text">Crie limites personalizados e gerencie-os</p>
-              <a href="limits/show" class="btn btn-primary mt-auto">Criar limites</a>
-            </div>
-          </div>
-        </div>
+        <a href="../categories/<%= limit.id %>/edit" class="btn btn-outline-dark">Editar</a>
+        <%= link_to 'Deletar', limit, :method => 'delete', class: 'btn btn-outline-danger' %>
       </div>
     </div>
-  </div>
+  <% end %>
 </div>

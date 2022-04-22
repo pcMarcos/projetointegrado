@@ -1,7 +1,7 @@
 class ExpensesController < ApplicationController
   def new
     @expense = Expense.new
-    @categories = Category.all
+    categories
   end
 
   def create
@@ -16,6 +16,21 @@ class ExpensesController < ApplicationController
 
   def show
     @expenses = Expense.all
+  end
+
+  def general
+    show
+  end
+
+  def categories
+    @categories = Category.all
+  end
+
+  def destroy
+    @expense = Expense.find(params[:id])
+    if @expense.destroy
+      redirect_to general_expenses_path, notice: 'Despesa excluída com sucesso'
+    end
   end
 
   private
