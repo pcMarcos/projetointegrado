@@ -14,12 +14,12 @@ class ExpensesController < ApplicationController
     end
   end
 
-  def show
+  def index
     @expenses = Expense.all
   end
 
   def general
-    show
+    index
   end
 
   def categories
@@ -28,8 +28,20 @@ class ExpensesController < ApplicationController
 
   def destroy
     @expense = Expense.find(params[:id])
-    if @expense.destroy
-      redirect_to general_expenses_path, notice: 'Despesa excluída com sucesso'
+    redirect_to general_expenses_path, notice: 'Despesa excluída com sucesso' if @expense.destroy
+  end
+
+  def edit
+    categories
+    @expense = Expense.find(params[:id])
+  end
+
+  def update
+    @expense = Expense.find(params[:id])
+    if @expense.update(expense_params)
+      redirect_to general_expenses_path, notice: 'Despesa atualizada com sucesso'
+    else
+      render :new, status: :unprocessable_entity, alert: 'Não foi possível atualizar a despesa'
     end
   end
 

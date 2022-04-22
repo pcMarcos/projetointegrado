@@ -4,13 +4,17 @@
       <h3> Despesas gerais </h3>
     </div>
     <div class="col-4 mb-4">
-      <%= link_to 'Voltar', :back, class: 'btn btn-outline-dark'  %>
+      <%= link_to 'Voltar', expenses_path, class: 'btn btn-outline-dark'  %>
       <%= link_to 'Nova despesa', new_expense_path, class: 'btn btn-outline-dark'  %>
+      <%= link_to 'Voltar à página inicial', root_path, class: 'btn btn-outline-dark'  %>
     </div>
   </div>
   <div class="col-8">
     <div class="card">
       <div class="card-body">
+        <% if @expenses.blank? %>
+          <h5 class="card-title text-danger"> Você não tem despesas criadas! </h5>
+        <% end %>
         <% @expenses.each do |expense| %>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
@@ -23,7 +27,7 @@
               <li class="list-group-item"> <strong> Categoria: </strong> <%= expense&.category&.name %> </p>
             </li>
             <div class="col-4 mt-4">
-              <%= link_to 'Editar', expense, :method => 'edit', class: 'btn btn-outline-dark' %>
+              <%= link_to 'Editar', edit_expense_path(expense) , class: 'btn btn-outline-dark' %>
               <%= link_to 'Deletar', expense, :method => 'delete', class: 'btn btn-outline-danger' %>
             </div>
           </ul>

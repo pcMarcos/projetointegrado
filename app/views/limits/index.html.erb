@@ -1,8 +1,12 @@
 <div class="col-4 mb-3">
-  <%= link_to 'Criar limites', @limit, :method => 'new', class: 'btn btn-outline-dark' %>
+  <%= link_to 'Criar limite', new_limit_path, class: 'btn btn-outline-dark' %>
+  <%= link_to 'Voltar à página inicial', root_path, class: 'btn btn-outline-dark'  %>
 </div>
 <div class="col-4 my-3">
   <h3> Limites </h3>
+  <% if @limits.blank? %>
+    <p class="text-danger" > Não há limites cadastrados </p>
+  <% end%>
   <% @limits.each do |limit| %>
     <div class="card my-3">
       <div class="card-body">
@@ -21,7 +25,7 @@
             <h5 class="card-title"> Limite total: <span class="text-success"> <%= limit.value.round %> </span> </h5>
           </div>
         </div>
-        <a href="../categories/<%= limit.id %>/edit" class="btn btn-outline-dark">Editar</a>
+        <%= link_to 'Editar', edit_limit_path(limit), class: 'btn btn-outline-dark' %>
         <%= link_to 'Deletar', limit, :method => 'delete', class: 'btn btn-outline-danger' %>
       </div>
     </div>

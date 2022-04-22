@@ -13,6 +13,10 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def index
+    @categories = Category.all
+  end
+
   def show
     @categories = Category.all
   end
@@ -26,7 +30,21 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def edit
+    @category = Category.find(params[:id])
+  end
+
+  def update
+    @category = Category.find(params[:id])
+    if @category.update(category_params)
+      redirect_to categories_path, notice: 'Categoria atualizada com sucesso'
+    else
+      render :new, status: :unprocessable_entity, alert: 'Não foi possível atualizar a categoria'
+    end
+  end
+
   private
+
   def category_params
     params.require(:category).permit(:name).merge(user: current_user)
   end
