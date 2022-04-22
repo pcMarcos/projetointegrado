@@ -28,7 +28,7 @@
               <li class="list-group-item"> <strong> Nome da despesa: </strong> <%= expense.name %> </li>
               <li class="list-group-item"> <strong> Valor: </strong> <%= expense.value %> </li>
               <li class="list-group-item"> <strong> Descrição: </strong> <%= expense.description %> </li>
-              <li class="list-group-item"> <strong> Data de criação: </strong> <%= expense.created_at %> </li>
+              <li class="list-group-item"> <strong> Data de criação: </strong> <%= expense.created_at.strftime("%d de %B de %Y") %> </li>
               <li class="list-group-item"> <strong> Categoria: </strong> <%= expense&.category&.name %> </p>
             </li>
           </ul>
