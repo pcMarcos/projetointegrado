@@ -1,24 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![expense tracker](app/assets/images/finance.png)
 
-Things you may want to cover:
 
-* Ruby version
+O trabalho apresentado como Projeto Integrado I chama-se Expense Tracker, da tradução livre do inglês: gerenciador de despesas, que tem como objetivo auxiliar os usuários a estabelecer uma rotina de controle financeiro. O aplicativo apresentado oferece uma interface para criação, gerenciamento e monitoramento de despesas, sendo elas pessoas físicas ou corporativas.
 
-* System dependencies
+A aplicação conta com funcionalidades de criação, edição e exclusão de despesas, bem como o controle de categorias para cada despesa e os limites estabelecidos para cada categoria ou um limite geral.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Dentre as tecnologias utilizadas para sua implementação, destaca-se o framework Ruby on Rails, banco de dados Postgres, biblioteca de CSS Bootstrap e hospedagem na  plataforma cloud Heroku.
