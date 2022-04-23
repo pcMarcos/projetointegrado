@@ -7,13 +7,18 @@
     </div>
   </div>
 </div>
-
-
 <div class="container">
   <div class="row">
     <div class="col-4">
       <h3> Criar categoria </h3>
       <%= form_with(model: @category, url: categories_path) do |f| %>
+        <% if @category.errors.any? %>
+          <ul>
+            <% @category.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
         <div class="card">
           <div class="card-body">
             <div class="mb-3">

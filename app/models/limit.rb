@@ -23,4 +23,8 @@
 class Limit < ApplicationRecord
   belongs_to :category
   belongs_to :user
+
+  validates :name, presence: true, message: 'não pode ser deixado em branco'
+  validates :category_id, presence: true, uniqueness: { scope: :category_id,
+                                                        message: 'Limite já existe para esta categoria' }
 end

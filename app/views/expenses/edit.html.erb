@@ -1,13 +1,19 @@
 <div class="container">
-<div class="col-4 mb-4">
-  <%= link_to 'Voltar', :back, class: 'btn btn-outline-dark'  %>
-  <a href= <%= general_expenses_path %> class="btn btn-outline-dark mt-auto" > Listar despesas </a>
-
-</div>
+  <div class="col-4 mb-4">
+    <%= link_to 'Voltar', :back, class: 'btn btn-outline-dark'  %>
+    <a href= <%= general_expenses_path %> class="btn btn-outline-dark mt-auto" > Listar despesas </a>
+  </div>
   <div class="row justify-content-around">
     <div class="col-4">
       <h5> Editar despesa - ID: <%= @expense.id %> </h5>
       <%= form_for @expense do |f| %>
+        <% if @expense.errors.any? %>
+          <ul>
+            <% @expense.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
         <div class="card">
           <div class="card-body">
             <div class="mb-3">

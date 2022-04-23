@@ -9,6 +9,7 @@ class CategoriesController < ApplicationController
     if @category.save
       redirect_to new_category_path, notice: 'Categoria criada com sucesso'
     else
+      show
       render :new, status: :unprocessable_entity, alert: 'Não foi possível criar a categoria'
     end
   end
@@ -39,7 +40,8 @@ class CategoriesController < ApplicationController
     if @category.update(category_params)
       redirect_to categories_path, notice: 'Categoria atualizada com sucesso'
     else
-      render :new, status: :unprocessable_entity, alert: 'Não foi possível atualizar a categoria'
+      show
+      render :edit, status: :unprocessable_entity, alert: 'Não foi possível atualizar a categoria'
     end
   end
 

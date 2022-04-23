@@ -3,6 +3,13 @@
     <div class="col-4">
       <h3> Editar Limite </h3>
       <%= form_for @limit do |f| %>
+        <% if @limit.errors.any? %>
+          <ul>
+            <% @limit.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
         <div class="card">
           <div class="card-body">
             <div class="mb-3">

@@ -9,6 +9,7 @@ class LimitsController < ApplicationController
     if @limit.save
       redirect_to new_limit_path, notice: 'Limite criado com sucesso!'
     else
+      @categories = Category.all
       render 'new', alert: 'Não foi possível criar o limite!'
     end
   end
@@ -32,6 +33,7 @@ class LimitsController < ApplicationController
     if @limit.update(limit_params)
       redirect_to limits_path, notice: 'Limite atualizado com sucesso'
     else
+      @categories = Category.all
       render :new, status: :unprocessable_entity, alert: 'Não foi possível atualizar o limite'
     end
   end

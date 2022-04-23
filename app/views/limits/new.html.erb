@@ -7,12 +7,18 @@
     </div>
   </div>
 </div>
-
 <div class="container">
   <div class="row">
     <div class="col-4">
       <h3> Criar Limite </h3>
       <%= form_with(model: @limit, url: limits_path) do |f| %>
+        <% if @limit.errors.any? %>
+          <ul>
+            <% @limit.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
         <div class="card">
           <div class="card-body">
             <div class="mb-3">
@@ -34,4 +40,3 @@
     </div>
   </div>
 </div>
-

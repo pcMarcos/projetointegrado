@@ -10,6 +10,7 @@ class ExpensesController < ApplicationController
     if @expense.save
       redirect_to root_path, notice: 'Despesa criada com sucesso'
     else
+      categories
       render :new, status: :unprocessable_entity, alert: 'Não foi possível criar a despesa'
     end
   end
@@ -41,6 +42,7 @@ class ExpensesController < ApplicationController
     if @expense.update(expense_params)
       redirect_to general_expenses_path, notice: 'Despesa atualizada com sucesso'
     else
+      categories
       render :new, status: :unprocessable_entity, alert: 'Não foi possível atualizar a despesa'
     end
   end
