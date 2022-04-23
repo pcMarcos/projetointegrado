@@ -29,7 +29,7 @@ class Expense < ApplicationRecord
   belongs_to :user
   belongs_to :category
 
-  validates :name, presence: true, message: 'não pode ser deixado em branco'
-  validates :value, presence: true, message: 'não pode ser deixado em branco'
-  validates :category_id, presence: true, message: 'não pode ser deixado em branco'
+  validates :name, presence: { message: 'não pode ser deixado em branco' }
+  validates :value, presence: { message: 'não pode ser deixado em branco' }
+  validates :category_id, presence: { message: 'não pode ser deixado em branco' }
 end

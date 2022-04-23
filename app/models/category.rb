@@ -21,6 +21,6 @@ class Category < ApplicationRecord
   has_many :expenses
   has_one :limit
 
-  validates_presence_of :name, presence: true, message: 'não pode ser deixado em branco'
+  validates_presence_of :name, presence: { message: 'não pode ser deixado em branco' }
   validates_uniqueness_of :name, scope: :user_id, message: 'já existe para este usuário'
 end
